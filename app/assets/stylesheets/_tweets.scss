@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+.homepage{
+  display: flex;
+}
+
 .homepage__header {
   height: 100vh;
   width: 360px;
@@ -12,6 +16,10 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    i{
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
     h2{
       font-size: 20px;
       margin-bottom: 20px;
@@ -19,6 +27,22 @@
     .btn{
       width: 150px;
       border-radius: 20px;
+    }
+  }
+}
+
+.homepage__middle {
+  height: 100vh;
+  border: solid 1px lightgray;
+  @mixin first{
+    width: 600px;
+    overflow: scroll;
+    border: solid 1px lightgray;
+  }
+  &__header{
+    @include first;
+    h3{
+      margin: 10px;
     }
   }
 }

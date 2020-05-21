@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## twitterapp
 
-Things you may want to cover:
+## tweetsテーブル
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false|
+|text|text|null:false|
+|image|string|null:false|
 
-* Ruby version
+### Association
+- belongs_to user
+- has_many comments
+- has_many favorites
 
-* System dependencies
+## usersテーブル
+|column|Type|Options|
+|------|----|-------|
+|name|string|null:false|
+|profile_image|string|null:false|
+|email|string|null:false|
+|password|string|null:false|
+||||
+||||
 
-* Configuration
+### Association
+- has_many favorites
+- has_many tweets
+- has_many comments
 
-* Database creation
+## favoritesデーブル
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false|
+|tweet_id|integer|null:false|
 
-* Database initialization
+### Association
+- belongs_to user
+- belongs_to tweet
 
-* How to run the test suite
+## commentsテーブル
+|column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false|
+|tweet_id|integer|null:false|
+|text|text|null:false|
+||||
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

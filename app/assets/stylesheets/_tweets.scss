@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.homepage__header {
+.homepage__left {
   height: 100vh;
   width: 360px;
   overflow: scroll;
@@ -43,6 +43,26 @@
     @include first;
     h3{
       margin: 10px;
+    }
+  }
+}
+
+.homepage__right {
+  height: 100vh;
+  width: 450px;
+  &__header{
+    height: 50px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    h3{
+      font-size: 20px;
+      margin: 15px;
+    }
+    .btn{
+      width: 150px;
+      height: 40px;
+      border-radius: 20px;
     }
   }
 }

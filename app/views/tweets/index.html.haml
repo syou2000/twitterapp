@@ -1,6 +1,6 @@
 .homepage
-  .homepage__header
-    .homepage__header__content
+  .homepage__left
+    .homepage__left__content
       = link_to root_path do
         %i.fa.fa-home
       %h2.btn.btn-outline-primary ホーム
@@ -13,3 +13,8 @@
       %h3 ホーム
     .homepage__middle__tweet__space
     -# = form_with(local: true) do |form|
+
+  .homepage__right
+    .homepage__right__header
+      %h3.btn.btn-outline-primary ログイン
+      %h3.btn.btn-outline-primary 新規登録

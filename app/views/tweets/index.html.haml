@@ -16,5 +16,8 @@
 
   .homepage__right
     .homepage__right__header
-      %h3.btn.btn-outline-primary ログイン
-      %h3.btn.btn-outline-primary 新規登録
+      - unless user_signed_in?
+        = link_to new_user_session_path do
+          %h3.login.btn.btn-outline-primary ログイン
+        = link_to new_user_registration_path do
+          %h3.new_user.btn.btn-outline-primary 新規登録

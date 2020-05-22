@@ -68,3 +68,4 @@ gem 'devise-i18n-views'
 
 gem 'devise-bootstrap-views'
 
+gem 'rails-i18n'

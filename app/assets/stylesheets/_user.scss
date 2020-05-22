@@ -1,0 +1,16 @@
+@mixin userbackground{
+  height: 100vh;
+  width: 100vw;
+  background-image: url(../images/a.jpg);
+  text-align: center;
+  padding-top: 30vh;
+  }
+
+.signuppage{
+  @include userbackground
+}
+
+.loginpage{
+  @include userbackground
+}
+

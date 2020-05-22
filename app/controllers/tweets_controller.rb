@@ -3,7 +3,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
   end
 
-  # private
-  # def tweet_params
-  #   params.require(:tweet).permit(:text, :image, :user_id)
+  private
+  def tweet_params
+    params.require(:tweet).permit(:text,:user_id)
+  end
 end

@@ -13,7 +13,11 @@
     .homepage__middle__header
       %h3 ホーム
     .homepage__middle__tweet__space
-    -# = form_with(local: true) do |form|
+      .homepage__middle__tweet__space__left
+      .homepage__middle__tweet__space__right
+        
+      
+
 
   .homepage__right
     .homepage__right__header
@@ -22,3 +26,7 @@
           %h3.login.btn.btn-outline-primary ログイン
         = link_to new_user_registration_path do
           %h3.new_user.btn.btn-outline-primary 新規登録
+      - else
+        %h3.profile.btn.btn-outline-primary プロフィール
+        = link_to destroy_user_session_path do
+          %h3.logout.btn.btn-outline-primary ログアウト

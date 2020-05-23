@@ -6,4 +6,6 @@ class Tweet < ApplicationRecord
   # has_one_attahed  :tweet_image,  dependent: :destroy
 
   attr_accessor :image
+
+  validates :text, presence: true
 end

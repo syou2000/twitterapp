@@ -15,8 +15,10 @@
     .homepage__middle__tweet__space
       .homepage__middle__tweet__space__left
       .homepage__middle__tweet__space__right
-        
-      
+        = form_with(model: @tweet, local:true) do |f|
+          = f.text_field :text, class:'tweet__text', placeholder: 'いまどうしてる？'
+          = f.submit :text, class: 'tweet__btn', value: 'つぶやく'
+    .homepage__middle__gap
 
 
   .homepage__right

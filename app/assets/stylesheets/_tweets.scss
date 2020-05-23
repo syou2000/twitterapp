@@ -35,9 +35,9 @@
 .homepage__middle {
   height: 100vh;
   border: solid 1px lightgray;
+  overflow: scroll;
   @mixin first{
     width: 600px;
-    overflow: scroll;
     border: solid 1px lightgray;
   }
   &__header{
@@ -45,6 +45,51 @@
     h3{
       margin: 10px;
     }
+  }
+  &__tweet__space{
+    width: 600px;
+    height: 102px;
+    display: flex;
+    background-color: lightpink;
+    &__left{
+      width: 100px;
+      height: 102px;
+      background-color: lightskyblue;
+    }
+    &__right{
+      width: 550px;
+      height: 102px;
+      background-color: lightcyan;
+      .tweet__text{
+        width: 500px;
+        height: 50px;
+        border-radius: 20px;
+      }
+      .tweet__btn{
+        &:hover{
+          color: #4da6ff;
+          background: #ffffff;
+        }
+        border-radius : 20px;
+        font-size : 18px;
+        text-align : center;
+        cursor : pointer;
+        float: right;
+        margin-top: 5px;
+        margin-right: 5px;
+        padding : 10px;
+        background : #4da6ff;
+        color : #ffffff;
+        line-height : 1em;
+        transition : .3s;
+        border : 2px solid #4da6ff;
+      }
+    }
+  }
+  &__gap{
+    width: 600px;
+    height: 10px;
+    background-color: lightgray;
   }
 }
 

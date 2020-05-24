@@ -66,6 +66,6 @@ gem 'mini_magick'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 
-gem 'devise-bootstrap-views'
-
 gem 'rails-i18n'
+
+gem 'jquery-rails'

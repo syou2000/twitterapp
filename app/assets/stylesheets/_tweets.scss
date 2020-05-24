@@ -50,7 +50,6 @@
     width: 600px;
     height: 102px;
     display: flex;
-    background-color: lightpink;
     &__left{
       width: 100px;
       height: 102px;
@@ -64,6 +63,15 @@
         width: 500px;
         height: 50px;
         border-radius: 20px;
+      }
+      .image__icon{
+        color: blue($color: #231aa1);
+        font-size: 25px;
+        margin: 12px;
+        cursor: pointer;
+      }
+      .hidden-field{
+        display: none;
       }
       .tweet__btn{
         &:hover{

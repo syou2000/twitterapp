@@ -3,9 +3,10 @@ class Tweet < ApplicationRecord
   has_many  :favorites,  dependent: :destroy
   has_many  :favorited_users, through: :favorites,  source: :user
   has_many  :comments,  dependent: :destroy
-  # has_one_attahed  :tweet_image,  dependent: :destroy
+  has_many  :tweet_images
+  
+  accepts_nested_attributes_for :tweet_images, allow_destroy: true
+  mount_uploader :image, ImageUploader
 
-  attr_accessor :image
-
-  validates :text, presence: true
+  validates :text, presence: true, unless: :image?
 end

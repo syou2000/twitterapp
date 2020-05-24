@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_141640) do
+ActiveRecord::Schema.define(version: 2020_05_21_110857) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.bigint "user_id"
@@ -38,16 +38,9 @@ ActiveRecord::Schema.define(version: 2020_05_21_141640) do
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
-  create_table "tweet_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "image", null: false
-    t.bigint "tweet_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["tweet_id"], name: "index_tweet_images_on_tweet_id"
-  end
-
   create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
-    t.string "text", null: false
+    t.string "text"
+    t.string "image"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -72,6 +65,5 @@ ActiveRecord::Schema.define(version: 2020_05_21_141640) do
   add_foreign_key "favorites", "tweets"
   add_foreign_key "favorites", "users"
   add_foreign_key "relationships", "users"
-  add_foreign_key "tweet_images", "tweets"
   add_foreign_key "tweets", "users"
 end

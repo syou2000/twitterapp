@@ -1,0 +1,12 @@
+.homepage__middle__tweets__upperinfo{data:{tweet:{id:"#{tweet.id}"}}}
+  %p.homepage__middle__tweets__upperinfo__talker
+    = tweet.user.name
+  %p.homepage__middle__tweets__upperinfo__date
+    = tweet.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .homepage__middle__tweets__content
+    .homepage__middle__tweets__content__text
+      - if tweet.text.present?
+        %p.mainchat__messagelist__message__text__content
+          = tweet.text
+    .homepage__middle__tweets__content__image
+      = image_tag tweet.image.to_s if tweet.image.present?

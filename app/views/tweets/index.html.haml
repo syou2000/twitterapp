@@ -20,13 +20,14 @@
         .homepage__middle__tweet__space__right
           = form_with(model: @tweet, local:true) do |f|
             = f.text_field :text, class:'tweet__text', placeholder: 'いまどうしてる？'
-            = f.fields_for :tweet_images do |i|
-              %label
-                = i.file_field :image, class: 'hidden-field'
-                %i.fa.fa-image.image__icon
+            %label
+              = f.file_field :image, class: 'hidden-field'
+              %i.fa.fa-image.image__icon
             = f.submit :text, class: 'tweet__btn', value: 'つぶやく'
-    .homepage__middle__gap
     .homepage__middle__tweets
+      = render @tweets
+
+
  
 
 

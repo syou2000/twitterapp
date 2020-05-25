@@ -13,10 +13,6 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
 
-  VALID_EMAIL_REGEX = /\A[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\z/
-  VALID_PASS_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{7,128}+\z/i
-
-  # validates :name, presence: true
-  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  # validates :password, presence: true, length: { minimum: 7 }, format: { with: VALID_PASS_REGEX}
+  validates :profile, length: { maximum: 250 }
+  
 end

@@ -1,0 +1,10 @@
+.homepage__left
+  .homepage__left__content
+    = link_to root_path do
+      %i.fa.fa-home
+    = link_to root_path do
+      %h2.btn.btn-outline-primary ホーム
+    %h2.btn.btn-outline-primary メッセージ
+    %h2.btn.btn-outline-primary リスト
+    = link_to edit_user_path(id: @user.id) do
+      %h2.btn.btn-outline-primary プロフィール

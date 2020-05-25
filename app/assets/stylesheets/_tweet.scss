@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+.homepage{
+  background-image: url(../images/bird.jpg);
+  display: flex;
+}
+
+.homepage__left {
+  height: 100vh;
+  width: 360px;
+  overflow: scroll;
+  &__content {
+    height: 100vh;
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    i{
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    h2{
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+    .btn{
+      width: 150px;
+      border-radius: 20px;
+    }
+  }
+}
+
+.homepage__middle {
+  height: 100vh;
+  border: solid 1px lightgray;
+  overflow: scroll;
+  @mixin first{
+    width: 600px;
+    border: solid 1px lightgray;
+  }
+  &__header{
+    @include first;
+    h3{
+      margin: 10px;
+    }
+  }
+  &__tweet__space{
+    width: 600px;
+    height: 102px;
+    display: flex;
+    &__left{
+      width: 100px;
+      height: 102px;
+      background-color: lightskyblue;
+    }
+    &__right{
+      width: 550px;
+      height: 102px;
+      background-color: lightcyan;
+      .tweet__text{
+        width: 500px;
+        height: 50px;
+      }
+      .image__icon{
+        color: blue($color: #231aa1);
+        font-size: 25px;
+        margin: 12px;
+        cursor: pointer;
+      }
+      .hidden-field{
+        display: none;
+      }
+      .tweet__btn{
+        &:hover{
+          color: #4da6ff;
+          background: #ffffff;
+        }
+        border-radius : 20px;
+        font-size : 18px;
+        text-align : center;
+        cursor : pointer;
+        float: right;
+        margin-top: 5px;
+        margin-right: 5px;
+        padding : 10px;
+        background : #4da6ff;
+        color : #ffffff;
+        line-height : 1em;
+        transition : .3s;
+        border : 2px solid #4da6ff;
+      }
+    }
+  }
+  &__gap{
+    width: 600px;
+    height: 10px;
+    background-color: lightgray;
+  }
+}
+
+.homepage__right {
+  height: 100vh;
+  width: 450px;
+  &__header{
+    height: 50px;
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    h3{
+      font-size: 20px;
+      margin: 15px;
+    }
+    .btn{
+      width: 150px;
+      height: 40px;
+      border-radius: 20px;
+    }
+  }
+}

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:new, :create]
   resources :users, only: [:show, :edit]
+  resources :relationships, only: [:index, :show, :create, :destroy]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

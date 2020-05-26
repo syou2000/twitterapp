@@ -2,9 +2,8 @@
   box-sizing: border-box;
 }
 
-.homepage{ 
+.homepage{
   display: flex;
-  background-image: url(../images/bird.jpg);
 }
 
 .homepage__left {
@@ -103,10 +102,11 @@
 @mixin follow__box{
   margin: 0 auto;
   margin-top: 80px;
-  width: 350px;
+  width: 300px;
   height: 330px;
-  background-color: lightblue;
+  background-color: rgba(241, 236, 236, 0.897);
   overflow: scroll;
+  border-radius: 15px;
   h3{
     text-align: center;
   }

@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  root 'tweets#index'
+
+  authenticated :user do
+    root to: 'tweets#index', as: :user_root
+  end
+
+  root 'tweets#explore'
+
+  get 'explore', to: 'tweets#explore'
 
   resources :tweets, only: [:new, :create]
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:edit]
   resources :relationships, only: [:index, :show, :create, :destroy]
 
   devise_for :users, :controllers => {

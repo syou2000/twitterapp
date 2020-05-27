@@ -1,24 +1,31 @@
 class RelationshipsController < ApplicationController
-  protect_from_forgery :except => [:index, :show, :create, :destroy]
-
-  def index
-    @relationships = Relationship.all
-    render 'index', formats: 'json', handlers: 'jbuilder'
-  end
-
-  def show
-    @relationship = Relationship.find(user_id: params[:id])
-    render 'show', formats: 'json', handlers: 'jbuilder'
-  end
+  before_action :set_user
 
   def create
-    Relationship.new
-    Relationship.create(user_id: params[:user_id], follow_id: params[:follow_id])
-    Notification.create(visitor_id: params[:user_id], visited_id: params[:follow_id], action: 'follow')
+    following = current_user.follow(@user)
+    if following.save
+      flash[:success] = 'ユーザーをフォローしました'
+      redirect_to @user
+    else
+      flash.now[:alert] = 'ユーザーのフォローに失敗しました'
+      redirect_to @user
+    end
   end
 
   def destroy
-    relationship = Relationship.find(params[:id])
-    relationship.delete
+    following = current_user.unfollow(@user)
+    if following.destroy
+      flash[:success] = 'ユーザーのフォローを解除しました'
+      redirect_to @user
+    else
+      flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
+      redirect_to @user
+    end
   end
+
+  private
+  def
+    @user = User.find(params[:relationship][:follow_id])
+  end
+
 end

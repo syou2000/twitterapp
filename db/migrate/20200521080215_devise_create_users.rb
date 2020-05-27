@@ -9,6 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ""
 
       t.string :usericon
+      t.string :header
       t.text   :profile
 
       ## Recoverable

@@ -1,0 +1,15 @@
+.explorepage
+  .explorepage__header
+    %input.search__box{placeholder: "キーワード検索"}
+    = link_to new_user_session_path do
+      %h3.login.btn.btn-outline-primary ログイン
+    = link_to new_user_registration_path do
+      %h3.new_user.btn.btn-outline-primary 新規登録
+
+  .explorepage__content
+    .explorepage__content__left
+      = render @tweets
+
+    .explorepage__content__right
+      .explorepage__content__right__login__box
+

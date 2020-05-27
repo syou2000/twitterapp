@@ -1,8 +1,13 @@
 .userpage
   = render 'tweets/homepage__left'
-    
+
   .userpage__middle
     .userpage__middle__up
-      .userpage__middle__up__header__image
-      .userpage__middle__up__header__profile
+      = form_with(url: edit_user_path, local:true) do |f|
+        %label
+          .userpage__middle__up__header
+          = f.file_field :header, class: 'hidden-field'
+        = f.text_area :profile, class: 'user__profile'
     .userpage__middle__down
+      = render @tweets
+        

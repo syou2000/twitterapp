@@ -1,16 +1,31 @@
 .userpage{ 
   display: flex;
-  background-image: url(../images/bird.jpg);
 }
 
 .userpage__middle{
   height: 100vh;
-  border: solid 1px lightgray;
   overflow: scroll;
   width: 600px;
   border: solid 1px lightgray;
   &__up{
     width: 600px;
-    height: 500px;
+    height: 470px;
+    &__header{
+      width: 600px;
+      height: 200px;
+      background-color: lightblue;
+    }
+    .hidden-field{
+      display: none;
+    }
+    .user__profile{
+      width: 600px;
+      height: 270px;
+    }
+    .text_area{
+      padding: 0;
+    }
+   
   }
 }
+

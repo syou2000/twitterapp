@@ -33,8 +33,11 @@ ActiveRecord::Schema.define(version: 2020_05_21_110857) do
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "follow_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
     t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
@@ -52,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_110857) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "usericon"
+    t.string "header"
     t.text "profile"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -67,5 +71,6 @@ ActiveRecord::Schema.define(version: 2020_05_21_110857) do
   add_foreign_key "favorites", "tweets"
   add_foreign_key "favorites", "users"
   add_foreign_key "relationships", "users"
+  add_foreign_key "relationships", "users", column: "follow_id"
   add_foreign_key "tweets", "users"
 end

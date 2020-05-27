@@ -12,6 +12,10 @@ class TweetsController < ApplicationController
       redirect_to root_path, notice: '投稿に成功しました！'
     end
   end
+
+  def explore
+    @tweets = Tweet.all.includes(:user).order(created_at: :desc)
+  end
   
   private
   def tweet_params

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   validates :profile, length: { maximum: 250 }
-  
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

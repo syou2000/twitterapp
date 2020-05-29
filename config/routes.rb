@@ -6,10 +6,13 @@ Rails.application.routes.draw do
 
   root 'tweets#explore'
 
+  # post "users/:id/edit" to "users#edit"
+  
+
   get 'explore', to: 'tweets#explore'
 
   resources :tweets, only: [:new, :create]
-  resources :users, only: [:edit]
+  resources :users, only: [:edit, :update]
   resources :relationships, only: [:index, :show, :create, :destroy]
 
   devise_for :users, :controllers => {

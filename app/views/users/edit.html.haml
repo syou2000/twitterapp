@@ -3,11 +3,26 @@
 
   .userpage__middle
     .userpage__middle__up
-      = form_with(url: edit_user_path, local:true) do |f|
-        %label
-          .userpage__middle__up__header
-          = f.file_field :header, class: 'hidden-field'
-        = f.text_area :profile, class: 'user__profile'
+      = form_with(model: @user , local:true) do |f|
+        -if current_user.header.present?
+          .userpage__middle__up__header{data:{user:{id:"#{@user.id}"}}}
+            = image_tag current_user.header.to_s
+        -else
+          %label
+            .userpage__middle__up__header
+            = f.file_field :header, class: 'hidden-field'
+        = f.text_area :profile, class: 'user__profile', placeholder: "プロフィールを入力してください"
+        = f.submit :profile, class: 'profile__btn', value: '変更'
     .userpage__middle__down
       = render @tweets
+
+  .userpage__right
+    = render "tweets/follow__list"
+
+
+
+    
+
+
+
         

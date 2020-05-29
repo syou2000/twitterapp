@@ -10,10 +10,5 @@
     = link_to destroy_user_session_path do
       %h3.logout.btn.btn-outline-primary ログアウト
 
-.homepage__right__follow__list
-  %h3 フォローリスト
-
-
-.homepage__right__follower__list
-  %h3 フォロワーリスト
+= render "follow__list"
 

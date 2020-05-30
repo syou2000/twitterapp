@@ -2,8 +2,7 @@
   %h3 ホーム
 .homepage__middle__tweet__space
   .homepage__middle__tweet__space__left
-    - if user_signed_in?
-      = @user.name
+    = image_tag @user.usericon.to_s, size: '49x49', class: 'profile__usericon'
   -if user_signed_in?
     .homepage__middle__tweet__space__right
       = form_with(model: @tweet, local:true) do |f|

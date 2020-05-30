@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   validates :profile, length: { maximum: 250 }
 
+  mount_uploader :header__image, ImageUploader
+  mount_uploader :usericon, ImageUploader
+
   def follow(other_user)
     unless self == other_user
       self.relationships.find_or_create_by(follow_id: other_user.id)

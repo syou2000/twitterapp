@@ -11,8 +11,17 @@
           %label
             .userpage__middle__up__header
             = f.file_field :header__image, class: 'hidden-field'
-        = f.text_area :profile, class: 'user__profile', placeholder: "プロフィールを入力してください"
-        = f.submit :profile, class: 'profile__btn', value: '変更'
+        -if current_user.usericon.present?
+          .userpage__middle__up__usericon
+            = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
+        -else
+          %label
+            .userpage__middle__up__usericon
+            = f.file_field :usericon, class: 'hidden-field'
+        .userpage__middle__up__blank
+        = f.text_area :profile, class: 'user__profile', placeholder: "プロフィールを入力してください", id: 'textarea'
+        .userpage__middle__up__btn__space
+          = f.submit :profile, class: 'profile__btn', value: 'プロフィールを変更'
     .userpage__middle__down
       = render @tweets
 

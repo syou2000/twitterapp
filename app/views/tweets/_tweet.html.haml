@@ -1,7 +1,7 @@
 .homepage__middle__tweets__tweet
-  .homepage__middle__tweets__tweet__upperinfo{data:{tweet:{id:"#{tweet.id}"}}}
+  .homepage__middle__tweets__tweet__upperinfo
     %p.homepage__middle__tweets__tweet__upperinfo__talker
-      = image_tag @user.usericon.to_s, size: '49x49', class: 'profile__usericon'
+      = image_tag tweet.user.usericon.to_s, size: '49x49', class: 'profile__usericon'
     %p.homepage__middle__tweets__tweet__upperinfo__date
       = tweet.created_at.strftime("%m月%d日 %H時%M分")
   .homepage__middle__tweets__tweet__content

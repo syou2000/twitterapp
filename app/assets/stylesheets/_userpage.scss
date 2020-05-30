@@ -11,9 +11,11 @@
     width: 600px;
     height: auto;
     position: relative;
+    border: solid 1px lightgray;
     &__header{
       width: 600px;
       height: 200px;
+      border: solid 1px lightgray;
     }
     label{
       display: block;

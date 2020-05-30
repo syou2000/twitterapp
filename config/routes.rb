@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :tweets, only: [:new, :create]
   resources :users, only: [:edit, :update]
-  resources :relationships, only: [:index, :show, :create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

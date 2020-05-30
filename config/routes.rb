@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'explore', to: 'tweets#explore'
 
   resources :tweets, only: [:new, :create]
-  resources :users, only: [:edit, :update]
+  resources :users, only: [:show, :edit, :update]
   resources :relationships, only: [:create, :destroy]
 
   devise_for :users, :controllers => {

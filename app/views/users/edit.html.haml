@@ -24,7 +24,9 @@
         .userpage__middle__up__btn__space
           = f.submit :profile, class: 'profile__btn', value: 'プロフィールを変更'
     .userpage__middle__down
-      = render @tweets
-
+      - @tweet.each do |tweet|
+        -# = tweet.text
+        = image_tag tweet.image.to_s
+      
   .userpage__right
     = render "tweets/follow__list"

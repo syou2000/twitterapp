@@ -7,5 +7,5 @@
     %h2.btn.btn-outline-primary メッセージ
     %h2.btn.btn-outline-primary リスト
     -if user_signed_in?
-      = link_to edit_user_path(id: @user.id) do
+      = link_to edit_user_path(current_user.id) do
         %h2.btn.btn-outline-primary プロフィール

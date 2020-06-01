@@ -1,0 +1,14 @@
+.homepage__right__header
+  - unless user_signed_in?
+    = link_to new_user_session_path do
+      %h3.login.btn.btn-outline-primary ログイン
+    = link_to new_user_registration_path do
+      %h3.new_user.btn.btn-outline-primary 新規登録
+  - else
+    = link_to edit_user_path(id: @user.id) do
+      %h3.profile.btn.btn-outline-primary プロフィール
+    = link_to destroy_user_session_path do
+      %h3.logout.btn.btn-outline-primary ログアウト
+
+= render "follow__list"
+

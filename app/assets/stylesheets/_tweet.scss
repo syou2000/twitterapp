@@ -3,7 +3,6 @@
 }
 
 .homepage{
-  background-image: url(../images/bird.jpg);
   display: flex;
 }
 
@@ -48,20 +47,22 @@
   }
   &__tweet__space{
     width: 600px;
-    height: 102px;
+    height: auto;
     display: flex;
+    border: solid 1px lightgray;
     &__left{
       width: 100px;
       height: 102px;
-      background-color: lightskyblue;
     }
     &__right{
       width: 550px;
       height: 102px;
-      background-color: lightcyan;
       .tweet__text{
         width: 500px;
         height: 50px;
+        border: 0;
+        font-size: 17px;
+        padding-top: 10px;
       }
       .image__icon{
         color: blue($color: #231aa1);
@@ -82,12 +83,11 @@
         text-align : center;
         cursor : pointer;
         float: right;
-        margin-top: 5px;
         margin-right: 5px;
         padding : 10px;
         background : #4da6ff;
         color : #ffffff;
-        line-height : 1em;
+        line-height : 20px;
         transition : .3s;
         border : 2px solid #4da6ff;
       }
@@ -97,6 +97,19 @@
     width: 600px;
     height: 10px;
     background-color: lightgray;
+  }
+}
+
+@mixin follow__box{
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 300px;
+  height: 330px;
+  background-color: rgba(241, 236, 236, 0.897);
+  overflow: scroll;
+  border-radius: 15px;
+  h3{
+    text-align: center;
   }
 }
 
@@ -117,5 +130,11 @@
       height: 40px;
       border-radius: 20px;
     }
+  }
+  &__follow__list{
+    @include follow__box
+  }
+  &__follower__list{
+    @include follow__box
   }
 }

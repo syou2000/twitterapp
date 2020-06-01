@@ -1,0 +1,15 @@
+.homepage__middle__header
+  %h3 ホーム
+.homepage__middle__tweet__space
+  .homepage__middle__tweet__space__left
+    = image_tag @user.usericon.to_s, size: '49x49', class: 'profile__usericon'
+  -if user_signed_in?
+    .homepage__middle__tweet__space__right
+      = form_with(model: @tweet, local:true) do |f|
+        = f.text_area :text, class:'tweet__text', placeholder: 'いまどうしてる？'
+        %label
+          = f.file_field :image, class: 'hidden-field'
+          %i.fa.fa-image.image__icon
+        = f.submit :text, class: 'tweet__btn', value: 'つぶやく'
+.homepage__middle__tweets
+  = render @tweets

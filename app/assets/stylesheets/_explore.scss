@@ -1,0 +1,28 @@
+.explorepage__header{
+  width: 100vw;
+  height: 70px;
+  background-color: lightblue;
+  input{
+    width: 500px;
+    height: 40px;
+    border-radius: 15px;
+    margin: 12px 230px;
+  }
+  h3{
+    font-size: 20px;
+    margin: 15px;
+  }
+  .btn{
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+  }
+}
+
+.explorepage__content{
+  display: flex;
+  &__left{
+    width: 600px;
+    margin-left: 230px;
+  }
+}

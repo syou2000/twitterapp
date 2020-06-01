@@ -1,13 +1,13 @@
 .homepage__middle__tweets__tweet
-  .homepage__middle__tweets__tweet__upperinfo{data:{tweet:{id:"#{tweet.id}"}}}
+  .homepage__middle__tweets__tweet__upperinfo
     %p.homepage__middle__tweets__tweet__upperinfo__talker
-      = tweet.user.name
+      = link_to user_path(id: @usera.id) do
+        = image_tag tweet.user.usericon.to_s, size: '49x49', class: 'profile__usericon'
     %p.homepage__middle__tweets__tweet__upperinfo__date
       = tweet.created_at.strftime("%m月%d日 %H時%M分")
   .homepage__middle__tweets__tweet__content
     .homepage__middle__tweets__tweet__content__text
       - if tweet.text.present?
-        %p.mainchat__messagelist__message__text__content
-          = simple_format(tweet.text)
+        = simple_format(tweet.text)
     .homepage__middle__tweets__tweet__content__image
       = image_tag tweet.image.to_s, size: '500x300', class: 'tweet__image' if tweet.image.present?

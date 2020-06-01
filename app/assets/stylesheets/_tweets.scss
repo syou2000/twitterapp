@@ -15,8 +15,19 @@
 }
 
 .homepage__middle__tweets__tweet__content__image{
+  margin-top: 20px;
   text-align: center;
   .tweet__image{
     border-radius: 10px;
   }
+}
+
+.homepage__middle__tweets__tweet{
+  border: solid 1px lightgray;
+  height: auto;
+}
+
+.homepage__middle__tweets__tweet__content__text{
+  margin-top: 5px;
+  margin-left: 60px;
 }

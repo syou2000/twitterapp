@@ -6,5 +6,5 @@ class Tweet < ApplicationRecord
   
   mount_uploader :image, ImageUploader
 
-  validates :text, presence: true, unless: :image?
+  validates :text, presence: true, unless: :image?, length: { maximum: 140 }
 end

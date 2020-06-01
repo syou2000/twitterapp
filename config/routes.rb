@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
-  root 'tweets#index'
+
+  authenticated :user do
+    root to: 'tweets#index', as: :user_root
+  end
+
+  root 'tweets#explore'
+
+  # post "users/:id/edit" to "users#edit"
+  
+
+  get 'explore', to: 'tweets#explore'
 
   resources :tweets, only: [:new, :create]
+  resources :users, only: [:show, :edit, :update]
+  resources :relationships, only: [:create, :destroy]
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',

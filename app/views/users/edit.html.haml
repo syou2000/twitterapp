@@ -1,0 +1,43 @@
+.userpage
+  = render 'tweets/homepage__left'
+
+  .userpage__middle
+    .userpage__middle__up
+      = form_with(model: @user , local:true) do |f|
+        -if current_user.header__image.present?
+          .userpage__middle__up__header
+            = image_tag @user.header__image.to_s, size: '600x200', class: 'profile__header'
+        -else
+          %label
+            .userpage__middle__up__header
+            = f.file_field :header__image, class: 'hidden-field'
+        -if current_user.usericon.present?
+          .userpage__middle__up__usericon
+            = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
+        -else
+          %label
+            .userpage__middle__up__usericon
+            = f.file_field :usericon, class: 'hidden-field'
+        .userpage__middle__up__blank
+        = @user.name
+        = f.text_area :profile, class: 'user__profile', placeholder: "プロフィールを入力してください", id: 'textarea'
+        .userpage__middle__up__btn__space
+          = f.submit :profile, class: 'profile__btn', value: 'プロフィールを変更'
+    .userpage__middle__down
+      - @tweets.each do |tweet|
+        .userpage__middle__down__tweets__tweet
+          .userpage__middle__down__tweets__tweet__upperinfo
+            %p.userpage__middle__down__tweets__tweet__upperinfo__talker
+              = image_tag @user.usericon.to_s, size: '49x49', class: 'profile__usericon'
+            %p.userpage__middle__down__tweets__tweet__upperinfo__date
+              = tweet.created_at.strftime("%m月%d日 %H時%M分")
+          .userpage__middle__down__tweets__tweet__content
+            .userpage__middle__down__tweets__tweet__content__text
+              - if tweet.text.present?
+                = simple_format(tweet.text)
+            .userpage__middle__down__tweets__tweet__content__image
+              = image_tag tweet.image.to_s, size: '500x300', class: 'tweet__image' if tweet.image.present?
+        
+      
+  .userpage__right
+    = render "tweets/follow__list"

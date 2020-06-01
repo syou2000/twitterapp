@@ -1,45 +1,8 @@
 .homepage
-  .homepage__left
-    .homepage__left__content
-      = link_to root_path do
-        %i.fa.fa-home
-      = link_to root_path do
-        %h2.btn.btn-outline-primary ホーム
-      %h2.btn.btn-outline-primary メッセージ
-      %h2.btn.btn-outline-primary リスト
-      %h2.btn.btn-outline-primary プロフィール
+  = render 'homepage__left'
 
   .homepage__middle
-    .homepage__middle__header
-      %h3 ホーム
-    .homepage__middle__tweet__space
-      .homepage__middle__tweet__space__left
-        - if user_signed_in?
-          = @user.name
-      -if user_signed_in?
-        .homepage__middle__tweet__space__right
-          = form_with(model: @tweet, local:true) do |f|
-            = f.text_area :text, class:'tweet__text', placeholder: 'いまどうしてる？'
-            %label
-              = f.file_field :image, class: 'hidden-field'
-              %i.fa.fa-image.image__icon
-            = f.submit :text, class: 'tweet__btn', value: 'つぶやく'
-    .homepage__middle__tweets
-      = render @tweets
-
-
- 
-
-
+    = render 'homepage__middle'
 
   .homepage__right
-    .homepage__right__header
-      - unless user_signed_in?
-        = link_to new_user_session_path do
-          %h3.login.btn.btn-outline-primary ログイン
-        = link_to new_user_registration_path do
-          %h3.new_user.btn.btn-outline-primary 新規登録
-      - else
-        %h3.profile.btn.btn-outline-primary プロフィール
-        = link_to destroy_user_session_path do
-          %h3.logout.btn.btn-outline-primary ログアウト
+    = render 'homepage__right'

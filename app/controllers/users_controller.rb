@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    @tweets = Tweet.where(user_id: params[:id])
   end
 
   def edit
     @user = User.find_by(id: params[:id])
-    # @tweets = Tweet.
+    @tweets = Tweet.where(user_id: params[:id])
   end
 
   def update

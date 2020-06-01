@@ -5,14 +5,38 @@
     .userpage__middle__up
       .userpage__middle__up__header
         = image_tag @user.header__image.to_s, size: '600x200', class: 'profile__header'
-        .userpage__middle__up__usericon
-          = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
-        .userpage__middle__up__blank
-        = @user.name
-        = @user.profile, class: 'user__profile'
-        .userpage__middle__up__btn__space
+      .userpage__middle__up__usericon
+        = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
+      .userpage__middle__up__blank
+      = @user.name
+      .userpage__middle__up__header__user__profile
+        = simple_format(@user.profile)
+      .userpage__middle__up__btn__space
+        - unless current_user == @user
+          - if current_user.following?(@user)
+            = form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f|
+              = f.hidden_field :follow_id, value: @user.id
+              = f.submit 'フォロー中', class: 'follow-now'
+          - else
+            = form_for(current_user.relationships.build) do |f|
+              = f.hidden_field :follow_id, value: @user.id
+              = f.submit 'フォロー', class: 'follows'
     .userpage__middle__down
-      = render @tweets
+      - @tweets.each do |tweet|
+        .userpage__middle__down__tweets__tweet
+          .userpage__middle__down__tweets__tweet__upperinfo
+            %p.userpage__middle__down__tweets__tweet__upperinfo__talker
+              = image_tag @user.usericon.to_s, size: '49x49', class: 'profile__usericon'
+            %p.userpage__middle__down__tweets__tweet__upperinfo__date
+              = tweet.created_at.strftime("%m月%d日 %H時%M分")
+          .userpage__middle__down__tweets__tweet__content
+            .userpage__middle__down__tweets__tweet__content__text
+              - if tweet.text.present?
+                = simple_format(tweet.text)
+            .userpage__middle__down__tweets__tweet__content__image
+              = image_tag tweet.image.to_s, size: '500x300', class: 'tweet__image' if tweet.image.present?
+      
+      
 
   .userpage__right
     = render "tweets/follow__list"

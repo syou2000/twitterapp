@@ -16,6 +16,10 @@
       width: 600px;
       height: 200px;
       border: solid 1px lightgray;
+      &__user__profile{
+        width: 600px;
+        height: auto;
+      }
     }
     label{
       display: block;
@@ -39,7 +43,7 @@
     }
     .user__profile{
       width: 600px;
-      height: auto;
+      height: 130px;
       border: 0;
     }
     &__btn__space{
@@ -79,4 +83,65 @@
 
 .profile__usericon{
   border-radius: 50%;
+}
+
+.userpage__middle__down{
+  clear: both;
+}
+
+.userpage__middle__down__tweets__tweet__upperinfo{
+  height: 28px;
+  padding-bottom: 12px;
+  display: flex;
+  &__talker{
+    color: #333333;
+    font-size: 16px;
+    padding-bottom: 12px;
+  }
+  &__date{
+    color: #999999;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+}
+
+.userpage__middle__down__tweets__tweet__content__image{
+  margin-top: 20px;
+  text-align: center;
+  .tweet__image{
+    border-radius: 10px;
+  }
+}
+
+.userpage__middle__down__tweets__tweet{
+  border: solid 1px lightgray;
+  height: auto;
+}
+
+.userpage__middle__down__tweets__tweet__content__text{
+  margin-top: 5px;
+  margin-left: 60px;
+}
+
+.follow-now, .follows{
+  &:hover{
+    color: #4da6ff;
+    background: #ffffff;
+  }
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius : 20px;
+  font-size : 18px;
+  text-align : center;
+  cursor : pointer;
+  float: right;
+  padding-top: 100px;
+  margin-right: 5px;
+  padding : 10px;
+  background : #4da6ff;
+  color : #ffffff;
+  line-height : 20px;
+  transition : .3s;
+  border : 2px solid #4da6ff;
 }

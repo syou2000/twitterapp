@@ -9,3 +9,11 @@
     -if user_signed_in?
       = link_to edit_user_path(current_user.id) do
         %h2.btn.btn-outline-primary プロフィール
+
+
+    = form_with(url: search_path, local: true, method: :get) do |f|
+      .search__box
+        = f.text_field :keyword, placeholder: "キーワード検索",value: @keyword, class: "request-search-field"
+        %label
+          %i.fa.fa-search
+          = f.submit "", class: "search-btn"

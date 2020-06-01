@@ -1,6 +1,6 @@
 .homepage__middle__tweets__tweet
   .homepage__middle__tweets__tweet__upperinfo
-    %p.homepage__middle__tweets__tweet__upperinfo__talker
+    .homepage__middle__tweets__tweet__upperinfo__talker
       = link_to user_path(id: @usera.id) do
         = image_tag tweet.user.usericon.to_s, size: '49x49', class: 'profile__usericon'
     %p.homepage__middle__tweets__tweet__upperinfo__date

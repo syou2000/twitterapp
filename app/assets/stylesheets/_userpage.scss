@@ -13,6 +13,7 @@
     position: relative;
     border: solid 1px lightgray;
     &__header{
+      cursor : pointer;
       width: 600px;
       height: 200px;
       border: solid 1px lightgray;
@@ -29,8 +30,9 @@
       display: none;
     }
     &__usericon{
-      width: 50px;
-      height: 50px;
+      cursor : pointer;
+      width: 130px;
+      height: 130px;
       border-radius: 50%;
       background-color: lightgray;
       position: absolute;
@@ -144,4 +146,8 @@
   line-height : 20px;
   transition : .3s;
   border : 2px solid #4da6ff;
+}
+
+.hidden-field2{
+  display: none;
 }

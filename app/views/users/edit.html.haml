@@ -6,17 +6,21 @@
       = form_with(model: @user , local:true) do |f|
         -if current_user.header__image.present?
           .userpage__middle__up__header
-            = image_tag @user.header__image.to_s, size: '600x200', class: 'profile__header'
+            %label
+              = image_tag @user.header__image.to_s, size: '600x200', class: 'profile__header'
+              = f.file_field :header__image, class: 'hidden-field2'
         -else
           %label
-            .userpage__middle__up__header
+            = image_tag 'no_image.png', class: 'userpage__middle__up__header'
             = f.file_field :header__image, class: 'hidden-field'
         -if current_user.usericon.present?
           .userpage__middle__up__usericon
-            = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
+            %label
+              = image_tag @user.usericon.to_s, size: '130x130', class: 'profile__usericon'
+              = f.file_field :usericon, class: 'hidden-field'
         -else
           %label
-            .userpage__middle__up__usericon
+            = image_tag 'no_image.png', class: 'userpage__middle__up__usericon'
             = f.file_field :usericon, class: 'hidden-field'
         .userpage__middle__up__blank
         = @user.name

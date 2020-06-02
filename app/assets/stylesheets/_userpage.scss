@@ -49,6 +49,17 @@
     &__btn__space{
       width: 600px;
       height: 60px;
+      display: flex;
+      h6{
+
+      }
+      &__follow__count{
+        display: flex;
+        margin-right: 10px;
+      }
+      &__follower__count{
+        display: flex;
+      }
     }
     .profile__btn{
       &:hover{
@@ -153,4 +164,8 @@
 
 .hidden-field2{
   display: none;
+}
+
+.follow_num{
+  font-size: 10px;
 }

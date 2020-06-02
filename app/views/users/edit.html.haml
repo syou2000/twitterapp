@@ -26,6 +26,12 @@
         = @user.name
         = f.text_area :profile, class: 'user__profile', placeholder: "プロフィールを入力してください", id: 'textarea'
         .userpage__middle__up__btn__space
+          .userpage__middle__up__btn__space__follow__count
+            = @user.followings.count
+            フォロー中
+          .userpage__middle__up__btn__space__follower__count
+            = @user.followers.count
+            フォロワー
           = f.submit :profile, class: 'profile__btn', value: 'プロフィールを変更'
     .userpage__middle__down
       - @tweets.each do |tweet|

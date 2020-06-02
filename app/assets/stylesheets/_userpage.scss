@@ -13,7 +13,6 @@
     position: relative;
     border: solid 1px lightgray;
     &__header{
-      cursor : pointer;
       width: 600px;
       height: 200px;
       border: solid 1px lightgray;
@@ -30,7 +29,6 @@
       display: none;
     }
     &__usericon{
-      cursor : pointer;
       width: 130px;
       height: 130px;
       border-radius: 50%;
@@ -77,15 +75,20 @@
   }
 }
 
-
 .userpage__right{
   height: 100vh;
   width: 450px;
 }
 
 .profile__usericon{
+  cursor: pointer;
   border-radius: 50%;
 }
+
+.profile__header{
+  cursor: pointer;
+}
+
 
 .userpage__middle__down{
   clear: both;

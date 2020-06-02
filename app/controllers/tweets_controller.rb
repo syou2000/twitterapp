@@ -4,8 +4,8 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     @tweets = Tweet.all.includes(:user).order(created_at: :desc)
     @user = current_user
-    twt = Tweet.find_by(params[:id])
-    @usera = User.find_by(id: twt.user_id)
+    # twt = Tweet.find(params[:id])
+    # @usera = User.find_by(id: twt.user_id)
   end
 
   def create
@@ -22,12 +22,6 @@ class TweetsController < ApplicationController
     if @twt.destroy
       redirect_to root_path
     end
-  end
-
-  def explore
-    twt = Tweet.find_by(params[:id])
-    @usera = User.find_by(id: twt.user_id)
-    @tweets = Tweet.all.includes(:user).order(created_at: :desc)
   end
 
   def search

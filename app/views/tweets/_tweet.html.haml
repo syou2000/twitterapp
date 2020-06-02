@@ -1,7 +1,7 @@
 .homepage__middle__tweets__tweet
   .homepage__middle__tweets__tweet__upperinfo
     .homepage__middle__tweets__tweet__upperinfo__talker
-      = link_to user_path(id: @usera.id) do
+      = link_to user_path(id: tweet.user.id) do
         = image_tag tweet.user.usericon.to_s, size: '49x49', class: 'profile__usericon'
     %p.homepage__middle__tweets__tweet__upperinfo__date
       = tweet.created_at.strftime("%m月%d日 %H時%M分")

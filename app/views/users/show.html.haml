@@ -12,6 +12,13 @@
       .userpage__middle__up__header__user__profile
         = simple_format(@user.profile)
       .userpage__middle__up__btn__space
+        .userpage__middle__up__btn__space
+          .userpage__middle__up__btn__space__follow__count
+            = @user.followings.count
+            フォロー中
+          .userpage__middle__up__btn__space__follower__count
+            = @user.followers.count
+            フォロワー
         - unless current_user == @user
           - if current_user.following?(@user)
             = form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f|

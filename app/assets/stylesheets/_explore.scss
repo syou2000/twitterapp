@@ -1,29 +1,77 @@
-.explorepage__header{
+.explorepage{
+  height: 100vh;
   width: 100vw;
-  height: 70px;
-  display: flex;
-  background-color: lightblue;
-  input{
-    width: 500px;
-    height: 40px;
-    border-radius: 15px;
-    margin: 12px 230px;
-  }
-  h3{
-    font-size: 20px;
-    margin: 15px;
-  }
-  .btn{
-    width: 150px;
-    height: 40px;
-    border-radius: 20px;
+  background-image: url(../images/20_2760.jpeg);
+  position: relative; 
+  &__content{
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    display: flex;
+    &__introduction{
+      height: 200px;
+      width: 588px;
+      margin-right: 50px;
+      h1{
+        color: white;
+        text-align: center;
+      }
+      h3{
+        line-height: 40px;
+        margin-top: 20px;
+        color: white;
+      }
+    }
   }
 }
 
-.explorepage__content{
-  display: flex;
-  &__left{
-    width: 600px;
-    margin-left: 230px;
+.signuppage{
+  height: 275px;
+  width: 350px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  h5{
+    text-align: center;
   }
+}
+
+.loginpage{
+  height: 150px;
+  width: 350px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.devise__btn{
+  &:hover{
+    color: #4da6ff;
+    background: #ffffff;
+  }
+  border-radius: 5px;
+  font-size : 18px;
+  text-align : center;
+  cursor : pointer;
+  margin-right: 5px;
+  padding : 7px;
+  background : #4da6ff;
+  color : #ffffff;
+  line-height : 20px;
+  transition : .3s;
+  border : 2px solid #4da6ff;
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+}
+
+.email__box, .password__box, .name__box{
+  width: 320px;
+  margin: 10px
+}
+
+
+
+.check__box{
+  margin-left: 10px;
 }

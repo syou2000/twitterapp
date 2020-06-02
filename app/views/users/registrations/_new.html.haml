@@ -1,0 +1,17 @@
+.signuppage
+  %h5 Twitterappを初めてみませんか？
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "名前、ニックネーム", class: 'name__box'
+    .field
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'email__box'
+    .field
+      - if @minimum_password_length
+        %em
+          (#{@minimum_password_length} characters minimum)
+      = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(6文字以上)", class: 'password__box'
+    .field
+      = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワードをもう一度入力してください", class: 'password__box'
+    .actions
+      = f.submit "Twitterappに登録する", class: 'devise__btn'

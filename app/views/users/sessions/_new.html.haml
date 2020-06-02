@@ -1,0 +1,12 @@
+.loginpage
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: 'email__box'
+    .field
+      = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: 'password__box'
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me, class: 'check__box'
+        = f.label :remember_me
+    .actions
+      = f.submit "ログイン", class: 'devise__btn'

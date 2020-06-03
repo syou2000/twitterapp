@@ -18,11 +18,11 @@
 |column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-|profile_image|string|null:false|
+|header_image|string||
 |email|string|null:false|
 |password|string|null:false|
-||||
-||||
+|usericon|string||
+|profile|text|profile|
 
 ### Association
 - has_many favorites
@@ -45,5 +45,7 @@
 |user_id|integer|null:false|
 |tweet_id|integer|null:false|
 |text|text|null:false|
-||||
 
+### Association
+- belongs_to user
+- belongs_to tweet

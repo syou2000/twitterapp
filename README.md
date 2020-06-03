@@ -22,7 +22,7 @@
 |email|string|null:false|
 |password|string|null:false|
 |usericon|string||
-|profile|text|profile|
+|profile|text||
 
 ### Association
 - has_many favorites
